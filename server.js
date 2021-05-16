@@ -36,7 +36,7 @@ app.post('/stopScript', function (req, res) {
 
 async function monitor() {
     try {
-        const newsurl = "https://www.nike.com/gb/launch?s=upcoming";
+        const newsurl = "https://www.nike.com/in/launch?s=upcoming";
         await axios.get(newsurl, {headers: {"connection":"keep-alive",
         "cache-control":"max-age=0",
         "accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
@@ -96,14 +96,15 @@ async function monitor() {
     
                                             const msg = new webhook.MessageBuilder()
                                                             .setText("<@&ROLE-ID>")
-                                                            .setName("Nike SNKRS Monitor")
+                                                            .setName("SNKRS Upcoming")
                                                             .setColor("#00ff55")
                                                             .setTitle(apost)
                                                             .setDescription(`**PRICE: ${itmprice.text} \n\nRELEASE DATE: ${month[i].text}, ${date[i].text}**`)
                                                             .setImage(imgs[i+runningtime].attrs.src)
                                                             .setTime()
                                                             .setURL(`http://nike.com${links[i].attrs.href}`)
-                                                            .setFooter("Made By Odiin#0001", "https://i.imgur.com/gtSR0hn.gif")
+                                                            .addField('Quick Links:', '[Upcoming](https://www.nike.com/in/launch?s=upcoming) | [Feed](https://www.nike.com/in/launch) | [Stock](https://www.nike.com/in/launch?s=in-stock) | [DEV](https://www.instagram.com/adityasanehi/)', false)
+                                                            .setFooter("Nike | Adi x HeavyDrops CG", "https://i.imgur.com/mMkIcZD.png")
 
                                     
                                             Hook.send(msg);
