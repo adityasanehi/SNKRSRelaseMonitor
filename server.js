@@ -22,13 +22,13 @@ app.listen(PORT, () =>
 var timer = null;
 
 app.post('/runScript', function (req, res) {
-    res.send('<a href="*LOCALHOST OR AWS/GOOGLE CLOUD*">Back To Homepage');
+    res.send('<a href="localhost:3000">Back To Homepage');
     let milliseconds = req.body.recurInterval * 60000
 
     timer = setInterval(async function(){ monitor() }, parseInt(milliseconds))
 });
 app.post('/stopScript', function (req, res) {
-    res.send('<a href="*LOCALHOST OR AWS/GOOGLE CLOUD*">Back To Homepage');
+    res.send('<a href="localhost:3000">Back To Homepage');
     clearInterval(timer)
 });
 
@@ -92,10 +92,10 @@ async function monitor() {
                                             console.log(shoedata)
 
                                             const webhook = require("webhook-discord");
-                                            const Hook = new webhook.Webhook("*YOUR WEBHOOK*");
+                                            const Hook = new webhook.Webhook("https://discord.com/api/webhooks/843497450245193728/RkDhGziQMjSGbE5HYBdvYtmYtWIDOtvq3QgA4-6T317Zea94unmvhI1DVj1xvySH_aoK");
     
                                             const msg = new webhook.MessageBuilder()
-                                                            .setText("<@&ROLE-ID>")
+                                                            .setText-("829238379320967248")
                                                             .setName("SNKRS Upcoming")
                                                             .setColor("#00ff55")
                                                             .setTitle(apost)
